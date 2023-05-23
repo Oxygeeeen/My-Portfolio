@@ -827,8 +827,8 @@ h3.profession {
 
 /* Updating Project */
 .passport {
-    width: 270px;
-    height: 400px;
+    width: 80%;
+    height: auto;
     background-size: contain;
     
 }
