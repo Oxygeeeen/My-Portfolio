@@ -128,3 +128,42 @@ document.querySelector(".portfolio-contact6").addEventListener("click", function
     removeBackSection()
     addBackSection(sectionIndex)
 })
+
+
+/*====================== Connecting Contact Form ==========================*/
+// Connecting Contact Form to EmailJS
+function sendMail() {
+    var params = {
+        from_name : document.getElementById("name_id").value,
+        email_id : document.getElementById("email_id").value,
+        message : document.getElementById("message_id").value
+    }
+    emailjs.send("service_7afrzco", "template_g7tx4lb", params).then(function (res) {
+        alert("Success! " + res.status)
+    })
+}
+
+// Clearing form fields on submit
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault()
+    document.getElementById("name_id").value = ""
+    document.getElementById("subject_id").value = ""
+    document.getElementById("email_id").value = ""
+    document.getElementById("message_id").value = ""
+})
+
+// Checking form validity on submit
+const form = document.querySelector("#contact-form")
+const submitButton = document.querySelector("#submitButton")
+const errorMessage = document.querySelector("#errorMessage")
+
+form.addEventListener("input", function(event) {
+    if (form.checkValidity()) {
+        submitButton.removeAttribute("disabled")
+        errorMessage.style.display = "none"
+    }
+    else {
+        submitButton.setAttribute("disabled", true)
+        errorMessage.style.display = "block"
+    }
+})
