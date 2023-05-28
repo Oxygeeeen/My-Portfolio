@@ -150,6 +150,7 @@ document.getElementById("contact-form").addEventListener("submit", function(even
     document.getElementById("subject_id").value = ""
     document.getElementById("email_id").value = ""
     document.getElementById("message_id").value = ""
+    submitButton.setAttribute("disabled", true)
 })
 
 // Checking form validity on submit
